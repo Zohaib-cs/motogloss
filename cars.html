@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Car Detailing — MotoGloss</title>
+    <meta
+      name="description"
+      content="Car detailing plans, pricing, and offers from MotoGloss — exterior wash, polish, ceramic, and interior care."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("mg-theme");
+          if (t !== "light" && t !== "dark") {
+            t = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="site-wrap">
+      <header class="site-header">
+        <div class="nav-inner">
+          <a class="logo" href="index.html">MOTO<span>GLOSS</span></a>
+          <nav class="nav-links" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <div class="nav-item">
+              <button type="button" class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Bikes</button>
+              <div class="nav-dropdown">
+                <a href="bikes.html">Bike detailing</a>
+                <a href="bikes.html#plans">Plans &amp; pricing</a>
+                <a href="bikes.html#offers">Offers</a>
+              </div>
+            </div>
+            <div class="nav-item is-active">
+              <button type="button" class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Cars</button>
+              <div class="nav-dropdown">
+                <a href="cars.html" aria-current="page">Car detailing</a>
+                <a href="cars.html#plans">Plans &amp; pricing</a>
+                <a href="cars.html#offers">Offers</a>
+              </div>
+            </div>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="about.html#contact">Contact</a>
+          </nav>
+          <div class="nav-actions">
+            <button class="theme-toggle" type="button" aria-label="Switch theme">
+              <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z" />
+              </svg>
+              <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+              </svg>
+            </button>
+            <a class="nav-cta" href="about.html#contact">Book a detail</a>
+            <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">Home</a>
+        <details>
+          <summary>Bikes</summary>
+          <div class="mobile-sub">
+            <a href="bikes.html">Bike detailing</a>
+            <a href="bikes.html#plans">Plans &amp; pricing</a>
+            <a href="bikes.html#offers">Offers</a>
+          </div>
+        </details>
+        <details open>
+          <summary>Cars</summary>
+          <div class="mobile-sub">
+            <a href="cars.html" aria-current="page">Car detailing</a>
+            <a href="cars.html#plans">Plans &amp; pricing</a>
+            <a href="cars.html#offers">Offers</a>
+          </div>
+        </details>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="about.html#contact">Contact</a>
+      </nav>
+
+      <main>
+        <header class="page-hero">
+          <div class="container reveal">
+            <p class="section-label">Automobiles</p>
+            <h1 class="section-title">Car detailing</h1>
+            <p class="section-lead">
+              Exterior gloss, interior refresh, and ceramic protection — packages
+              built for daily drivers and show cars.
+            </p>
+            <div class="btn-row" style="margin-top: 1.5rem">
+              <a class="btn btn-primary" href="#plans">See plans</a>
+              <a class="btn btn-ghost" href="#offers">View offers</a>
+            </div>
+          </div>
+        </header>
+
+        <section class="section" id="overview">
+          <div class="container">
+            <div class="section-head reveal">
+              <p class="section-label">What’s included</p>
+              <h2 class="section-title">Built for four wheels</h2>
+              <p class="section-lead">
+                From hatchbacks to SUVs — paint depth, clean cabin, and lasting
+                protection.
+              </p>
+            </div>
+            <ul class="service-list">
+              <li class="service-item reveal">
+                <span class="service-num">01</span>
+                <div>
+                  <h3>Exterior wash</h3>
+                  <p class="blurb">Foam wash, safe dry, wheels, and glass — foundation of every detail.</p>
+                </div>
+                <ul class="details">
+                  <li>Two-bucket / foam wash</li>
+                  <li>Wheels &amp; arches</li>
+                  <li>Glass &amp; mirrors</li>
+                </ul>
+              </li>
+              <li class="service-item reveal">
+                <span class="service-num">02</span>
+                <div>
+                  <h3>Polish &amp; ceramic</h3>
+                  <p class="blurb">Correction where needed, then sealant or ceramic for lasting gloss.</p>
+                </div>
+                <ul class="details">
+                  <li>Clay &amp; decontam</li>
+                  <li>Machine polish</li>
+                  <li>Ceramic / sealant</li>
+                </ul>
+              </li>
+              <li class="service-item reveal">
+                <span class="service-num">03</span>
+                <div>
+                  <h3>Interior care</h3>
+                  <p class="blurb">Vacuum, wipe-down, and fabric or leather refresh for a clean cabin.</p>
+                </div>
+                <ul class="details">
+                  <li>Full vacuum</li>
+                  <li>Dashboard &amp; plastics</li>
+                  <li>Seats &amp; mats</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <hr class="divider-glow" />
+
+        <section class="section" id="plans">
+          <div class="container">
+            <div class="section-head reveal">
+              <p class="section-label">Car plans</p>
+              <h2 class="section-title">Pricing</h2>
+              <p class="section-lead">
+                Car-only packages in PKR. SUVs and heavily oxidized paint may quote higher.
+              </p>
+            </div>
+
+            <div class="pricing-grid">
+              <article class="price-plan reveal">
+                <h3>Essential</h3>
+                <p class="price">PKR 4,999 <small>from</small></p>
+                <p class="desc">Exterior reset for weekly drivers — clean paint, sharp glass, fresh rubber.</p>
+                <ul>
+                  <li>Foam wash &amp; dry</li>
+                  <li>Wheels &amp; tyres</li>
+                  <li>Glass inside &amp; out</li>
+                  <li>Quick interior vacuum</li>
+                </ul>
+                <a class="btn btn-ghost" href="about.html#contact">Book Essential</a>
+              </article>
+
+              <article class="price-plan featured reveal">
+                <span class="badge">Most booked</span>
+                <h3>Signature</h3>
+                <p class="price">PKR 12,999 <small>from</small></p>
+                <p class="desc">Full exterior gloss plus interior refresh and short-term protection.</p>
+                <ul>
+                  <li>Everything in Essential</li>
+                  <li>Clay bar decontamination</li>
+                  <li>Machine polish (selected panels)</li>
+                  <li>Sealant / short-term ceramic</li>
+                  <li>Full interior wipe &amp; dress</li>
+                </ul>
+                <a class="btn btn-primary" href="about.html#contact">Book Signature</a>
+              </article>
+
+              <article class="price-plan reveal">
+                <h3>Showroom</h3>
+                <p class="price">PKR 24,999 <small>from</small></p>
+                <p class="desc">Correction-level finish for sales, shoots, and owners who want mirror depth.</p>
+                <ul>
+                  <li>Multi-stage paint correction</li>
+                  <li>Full ceramic coat</li>
+                  <li>Engine bay detail</li>
+                  <li>Deep interior clean</li>
+                  <li>Photo-ready staging</li>
+                </ul>
+                <a class="btn btn-ghost" href="about.html#contact">Book Showroom</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="offers" style="padding-top: 0">
+          <div class="container">
+            <div class="section-head reveal">
+              <p class="section-label">Car deals</p>
+              <h2 class="section-title">Offers</h2>
+            </div>
+            <div class="offers">
+              <article class="offer reveal">
+                <h4>First wash offer</h4>
+                <p>10% off your first car Signature detail — mention the code when you book.</p>
+                <span class="code">CODE: CARFIRST</span>
+              </article>
+              <article class="offer reveal">
+                <h4>Family fleet</h4>
+                <p>Detail two cars in the same week and get PKR 2,000 off the second Essential.</p>
+                <span class="code">ASK: FLEET2K</span>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <p class="footer-brand">MOTO<span>GLOSS</span></p>
+            <p class="footer-copy">Bike &amp; car detailing — clean, correct, protect.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <a href="bikes.html">Bikes</a>
+            <a href="cars.html">Cars</a>
+            <a href="about.html">About</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="https://instagram.com/motogloss.pk" target="_blank" rel="noopener noreferrer">@motogloss.pk</a>
+            <a href="mailto:hello@motogloss.com">hello@motogloss.com</a>
+            <a href="about.html#contact">Book a slot</a>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <span>© <span id="y"></span> MotoGloss. All rights reserved.</span>
+          <span>Car detailing plans &amp; offers</span>
+        </div>
+      </footer>
+    </div>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#f4f6f8"/>
+      <stop offset="100%" stop-color="#e8edf2"/>
+    </linearGradient>
+    <linearGradient id="wet" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3de0c0" stop-opacity="0"/>
+      <stop offset="42%" stop-color="#3de0c0" stop-opacity="0.55"/>
+      <stop offset="58%" stop-color="#1aa88f" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3de0c0" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9aa8b8" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#d7dde6" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#8a96a6" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#floor)"/>
+  <ellipse cx="1180" cy="620" rx="520" ry="220" fill="#3de0c0" opacity="0.08"/>
+  <path d="M-40 720 C280 520 520 820 860 580 C1120 400 1380 640 1640 500" fill="none" stroke="url(#wet)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M40 780 C360 580 600 860 940 620 C1180 450 1400 690 1660 560" fill="none" stroke="url(#chrome)" stroke-width="4"/>
+  <circle cx="360" cy="640" r="88" fill="none" stroke="#1a1f27" stroke-opacity="0.08" stroke-width="14"/>
+  <circle cx="360" cy="640" r="42" fill="none" stroke="#3de0c0" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="1120" cy="600" r="110" fill="none" stroke="#1a1f27" stroke-opacity="0.07" stroke-width="18"/>
+  <circle cx="1120" cy="600" r="52" fill="none" stroke="#3de0c0" stroke-opacity="0.28" stroke-width="3"/>
+  <path d="M250 640 H470 M1010 600 H1230" stroke="#1a1f27" stroke-opacity="0.06" stroke-width="6"/>
+</svg>
