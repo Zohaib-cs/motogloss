@@ -13,15 +13,21 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <script>
       (function () {
         try {
           var t = localStorage.getItem("mg-theme");
           if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
+            t = "dark";
           }
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
@@ -33,7 +39,7 @@
     <div class="site-wrap">
       <header class="site-header">
         <div class="nav-inner">
-          <a class="logo" href="index.html">MOTO<span>GLOSS</span></a>
+          <a class="logo" href="index.html"><span class="logo-stack"><span class="logo-mark">MOTO<span class="logo-accent">GLOSS</span></span><span class="logo-sub" aria-label="detailing"><span>d</span><span>e</span><span>t</span><span>a</span><span>i</span><span>l</span><span>i</span><span>n</span><span>g</span></span></span></a>
           <nav class="nav-links" aria-label="Primary">
             <a href="index.html">Home</a>
             <div class="nav-item">
@@ -172,76 +178,65 @@
               <p class="section-label">Car plans</p>
               <h2 class="section-title">Pricing</h2>
               <p class="section-lead">
-                Car-only packages in PKR. SUVs and heavily oxidized paint may quote higher.
+                Car packages in PKR.
               </p>
             </div>
 
             <div class="pricing-grid">
               <article class="price-plan reveal">
-                <h3>Essential</h3>
-                <p class="price">PKR 4,999 <small>from</small></p>
-                <p class="desc">Exterior reset for weekly drivers — clean paint, sharp glass, fresh rubber.</p>
+                <h3>Basic</h3>
+                <p class="price">PKR 7,000</p>
+                <p class="desc">Interior reset, engine bay, wash, and a final gloss.</p>
                 <ul>
-                  <li>Foam wash &amp; dry</li>
-                  <li>Wheels &amp; tyres</li>
-                  <li>Glass inside &amp; out</li>
-                  <li>Quick interior vacuum</li>
+                  <li>Interior reset</li>
+                  <li>Engine bay detail</li>
+                  <li>Contactless pre-wash</li>
+                  <li>Contact wash</li>
+                  <li>Tyres and trims restoration</li>
+                  <li>Quick detailer spray for extra gloss</li>
                 </ul>
-                <a class="btn btn-ghost" href="about.html#contact">Book Essential</a>
-              </article>
-
-              <article class="price-plan featured reveal">
-                <span class="badge">Most booked</span>
-                <h3>Signature</h3>
-                <p class="price">PKR 12,999 <small>from</small></p>
-                <p class="desc">Full exterior gloss plus interior refresh and short-term protection.</p>
-                <ul>
-                  <li>Everything in Essential</li>
-                  <li>Clay bar decontamination</li>
-                  <li>Machine polish (selected panels)</li>
-                  <li>Sealant / short-term ceramic</li>
-                  <li>Full interior wipe &amp; dress</li>
-                </ul>
-                <a class="btn btn-primary" href="about.html#contact">Book Signature</a>
+                <a class="btn btn-ghost" href="about.html#contact">Book Basic</a>
               </article>
 
               <article class="price-plan reveal">
-                <h3>Showroom</h3>
-                <p class="price">PKR 24,999 <small>from</small></p>
-                <p class="desc">Correction-level finish for sales, shoots, and owners who want mirror depth.</p>
+                <h3>Paint Correction</h3>
+                <p class="price">PKR 12,000</p>
+                <p class="desc">Basic work plus clay bar and two-step paint correction.</p>
                 <ul>
-                  <li>Multi-stage paint correction</li>
-                  <li>Full ceramic coat</li>
+                  <li>Interior reset</li>
                   <li>Engine bay detail</li>
-                  <li>Deep interior clean</li>
-                  <li>Photo-ready staging</li>
+                  <li>Contactless pre-wash</li>
+                  <li>Contact wash</li>
+                  <li>Tyres and trims restoration</li>
+                  <li>Clay bar decontamination</li>
+                  <li>Two-step paint correction</li>
+                  <li>Quick detailer spray for extra gloss</li>
                 </ul>
-                <a class="btn btn-ghost" href="about.html#contact">Book Showroom</a>
+                <a class="btn btn-ghost" href="about.html#contact">Book Paint Correction</a>
+              </article>
+
+              <article class="price-plan featured reveal">
+                <span class="badge">Ceramic</span>
+                <h3>Ceramic Coating</h3>
+                <p class="price">PKR 16,000</p>
+                <p class="desc">Paint correction plus a 6-month ceramic coat.</p>
+                <ul>
+                  <li>Interior reset</li>
+                  <li>Engine bay detail</li>
+                  <li>Contactless pre-wash</li>
+                  <li>Contact wash</li>
+                  <li>Tyres and trims restoration</li>
+                  <li>Clay bar decontamination</li>
+                  <li>Two-step paint correction</li>
+                  <li>Panel prep spray</li>
+                  <li>Gyeon CanCoat Evo Pro ceramic coating (6 months)</li>
+                </ul>
+                <a class="btn btn-primary" href="about.html#contact">Book Ceramic</a>
               </article>
             </div>
           </div>
         </section>
 
-        <section class="section" id="offers" style="padding-top: 0">
-          <div class="container">
-            <div class="section-head reveal">
-              <p class="section-label">Car deals</p>
-              <h2 class="section-title">Offers</h2>
-            </div>
-            <div class="offers">
-              <article class="offer reveal">
-                <h4>First wash offer</h4>
-                <p>10% off your first car Signature detail — mention the code when you book.</p>
-                <span class="code">CODE: CARFIRST</span>
-              </article>
-              <article class="offer reveal">
-                <h4>Family fleet</h4>
-                <p>Detail two cars in the same week and get PKR 2,000 off the second Essential.</p>
-                <span class="code">ASK: FLEET2K</span>
-              </article>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer class="site-footer">
@@ -259,7 +254,8 @@
           <div class="footer-col">
             <h4>Contact</h4>
             <a href="https://instagram.com/motogloss.pk" target="_blank" rel="noopener noreferrer">@motogloss.pk</a>
-            <a href="mailto:hello@motogloss.com">hello@motogloss.com</a>
+            <a href="mailto:motogloss@gmail.com">motogloss@gmail.com</a>
+            <a href="https://wa.me/923320070729" target="_blank" rel="noopener noreferrer">WhatsApp · 0332 0070729</a>
             <a href="about.html#contact">Book a slot</a>
           </div>
         </div>

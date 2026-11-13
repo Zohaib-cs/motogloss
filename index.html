@@ -13,20 +13,27 @@
       property="og:description"
       content="Mirror gloss. Zero compromise. Professional motorcycle detailing."
     />
+    <link rel="preload" as="image" href="assets/hero-1.jpg" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <script>
       (function () {
         try {
           var t = localStorage.getItem("mg-theme");
           if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
+            t = "dark";
           }
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
@@ -38,7 +45,7 @@
     <div class="site-wrap">
       <header class="site-header">
         <div class="nav-inner">
-          <a class="logo" href="index.html">MOTO<span>GLOSS</span></a>
+          <a class="logo" href="index.html"><span class="logo-stack"><span class="logo-mark">MOTO<span class="logo-accent">GLOSS</span></span><span class="logo-sub" aria-label="detailing"><span>d</span><span>e</span><span>t</span><span>a</span><span>i</span><span>l</span><span>i</span><span>n</span><span>g</span></span></span></a>
           <nav class="nav-links" aria-label="Primary">
             <a href="index.html" aria-current="page">Home</a>
             <div class="nav-item">
@@ -108,8 +115,33 @@
       </nav>
 
       <main>
-        <section class="hero">
-          <div class="hero-media" aria-hidden="true"></div>
+        <section class="hero" aria-roledescription="carousel" aria-label="Featured bikes">
+          <div class="hero-slider">
+            <div class="hero-slides">
+              <div
+                class="hero-slide is-active"
+                style="background-image: url('assets/hero-1.jpg')"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="1 of 3: BMW S1000RR M Package"
+              ></div>
+              <div
+                class="hero-slide"
+                data-bg="assets/hero-2.jpg?v=3"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="2 of 3: Kawasaki Z1000"
+              ></div>
+              <div
+                class="hero-slide"
+                data-bg="assets/hero-3.jpg?v=3"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="3 of 3: Kawasaki Z1000"
+              ></div>
+            </div>
+            <div class="hero-media-veil" aria-hidden="true"></div>
+          </div>
           <div class="hero-shine" aria-hidden="true"></div>
           <div class="hero-inner">
             <div class="hero-copy">
@@ -126,6 +158,14 @@
               </div>
             </div>
           </div>
+          <div class="hero-controls">
+            <p class="hero-slide-label" data-hero-label>BMW S1000RR · M Package</p>
+            <div class="hero-dots" role="tablist" aria-label="Hero slides">
+              <button type="button" class="hero-dot is-active" aria-label="Show BMW S1000RR" aria-selected="true" data-slide="0"></button>
+              <button type="button" class="hero-dot" aria-label="Show Kawasaki Z1000 side" aria-selected="false" data-slide="1"></button>
+              <button type="button" class="hero-dot" aria-label="Show Kawasaki Z1000" aria-selected="false" data-slide="2"></button>
+            </div>
+          </div>
         </section>
 
         <section class="section" id="videos">
@@ -134,52 +174,65 @@
               <p class="section-label">Process reels</p>
               <h2 class="section-title">Main detailing videos</h2>
               <p class="section-lead">
-                Placeholder covers for now — swap in your real detailing reels when
-                they’re ready.
+                Tap a card to watch the reel on Instagram.
               </p>
             </div>
 
             <div class="video-grid reveal">
-              <!-- Replace .video-placeholder with <video controls poster="..."> when ready -->
-              <article class="video-card">
+              <a
+                class="video-card"
+                href="https://www.instagram.com/p/DeI_jujI4v5/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div
                   class="video-placeholder"
-                  style="background-image: url('https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80')"
+                  style="background-image: url('assets/video-1.jpg')"
                 >
                   <div>
-                    <strong>VIDEO 01</strong>
-                    Showcase reel
+                    <strong>REEL 01</strong>
+                    Watch on Instagram
                   </div>
                 </div>
                 <div class="play-hint" aria-hidden="true"></div>
-                <div class="video-meta">Full detail — showcase reel</div>
-              </article>
-              <article class="video-card">
+                <div class="video-meta">Open on Instagram</div>
+              </a>
+              <a
+                class="video-card"
+                href="https://www.instagram.com/p/DeRZQhqKmUr/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div
                   class="video-placeholder"
-                  style="background-image: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=80')"
+                  style="background-image: url('assets/video-2.jpg')"
                 >
                   <div>
-                    <strong>VIDEO 02</strong>
-                    Polish &amp; ceramic
+                    <strong>REEL 02</strong>
+                    Watch on Instagram
                   </div>
                 </div>
                 <div class="play-hint" aria-hidden="true"></div>
-                <div class="video-meta">Paint correction close-up</div>
-              </article>
-              <article class="video-card">
+                <div class="video-meta">Open on Instagram</div>
+              </a>
+              <a
+                class="video-card"
+                href="https://www.instagram.com/p/DeZbVGbqd1F/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <div
                   class="video-placeholder"
-                  style="background-image: url('https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=900&q=80')"
+                  style="background-image: url('assets/video-3.jpg')"
                 >
                   <div>
-                    <strong>VIDEO 03</strong>
-                    Before → after
+                    <strong>REEL 03</strong>
+                    Watch on Instagram
                   </div>
                 </div>
                 <div class="play-hint" aria-hidden="true"></div>
-                <div class="video-meta">Transformation short</div>
-              </article>
+                <div class="video-meta">Open on Instagram</div>
+              </a>
             </div>
           </div>
         </section>
@@ -200,7 +253,7 @@
             <div class="bike-grid">
               <article class="bike-tile reveal">
                 <img
-                  src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80"
+                  src="assets/garage-1.jpg"
                   alt="Sport bike after full detail"
                   width="800"
                   height="1000"
@@ -213,7 +266,7 @@
               </article>
               <article class="bike-tile reveal">
                 <img
-                  src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80"
+                  src="assets/garage-2.jpg"
                   alt="Superbike with glossy paint"
                   width="800"
                   height="1000"
@@ -226,7 +279,7 @@
               </article>
               <article class="bike-tile reveal">
                 <img
-                  src="https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=800&q=80"
+                  src="assets/garage-3.jpg"
                   alt="Track-style motorcycle detailed"
                   width="800"
                   height="1000"
@@ -239,7 +292,7 @@
               </article>
               <article class="bike-tile reveal">
                 <img
-                  src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80"
+                  src="assets/garage-4.jpg"
                   alt="Classic cruiser motorcycle"
                   width="800"
                   height="1000"
@@ -252,7 +305,7 @@
               </article>
               <article class="bike-tile reveal">
                 <img
-                  src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?auto=format&fit=crop&w=800&q=80"
+                  src="assets/garage-5.jpg"
                   alt="Street motorcycle with clean finish"
                   width="800"
                   height="1000"
@@ -265,7 +318,7 @@
               </article>
               <article class="bike-tile reveal">
                 <img
-                  src="https://images.unsplash.com/photo-1525160354360-d9ad65efa0ad?auto=format&fit=crop&w=800&q=80"
+                  src="assets/garage-6.jpg"
                   alt="Cafe racer motorcycle detailed"
                   width="800"
                   height="1000"
@@ -304,10 +357,10 @@
                   <span>Daily drops, reels &amp; booking DMs</span>
                 </div>
               </a>
-              <a class="connect-link mail" href="mailto:hello@motogloss.com">
+              <a class="connect-link mail" href="mailto:motogloss@gmail.com">
                 <div class="connect-body">
                   <p class="eyebrow">Email</p>
-                  <strong>hello@motogloss.com</strong>
+                  <strong>motogloss@gmail.com</strong>
                   <span>Quotes, fleet jobs &amp; schedule</span>
                 </div>
               </a>
@@ -334,7 +387,8 @@
           <div class="footer-col">
             <h4>Contact</h4>
             <a href="https://instagram.com/motogloss.pk" target="_blank" rel="noopener noreferrer">@motogloss.pk</a>
-            <a href="mailto:hello@motogloss.com">hello@motogloss.com</a>
+            <a href="mailto:motogloss@gmail.com">motogloss@gmail.com</a>
+            <a href="https://wa.me/923320070729" target="_blank" rel="noopener noreferrer">WhatsApp · 0332 0070729</a>
             <a href="about.html#contact">Book a slot</a>
           </div>
         </div>

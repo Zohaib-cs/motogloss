@@ -13,15 +13,21 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <script>
       (function () {
         try {
           var t = localStorage.getItem("mg-theme");
           if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
+            t = "dark";
           }
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
@@ -33,7 +39,7 @@
     <div class="site-wrap">
       <header class="site-header">
         <div class="nav-inner">
-          <a class="logo" href="index.html">MOTO<span>GLOSS</span></a>
+          <a class="logo" href="index.html"><span class="logo-stack"><span class="logo-mark">MOTO<span class="logo-accent">GLOSS</span></span><span class="logo-sub" aria-label="detailing"><span>d</span><span>e</span><span>t</span><span>a</span><span>i</span><span>l</span><span>i</span><span>n</span><span>g</span></span></span></a>
           <nav class="nav-links" aria-label="Primary">
             <a href="index.html">Home</a>
             <div class="nav-item">
@@ -118,7 +124,7 @@
           <div class="container about-grid">
             <div class="about-visual reveal">
               <img
-                src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=1000&q=80"
+                src="assets/about-bike.jpg"
                 alt="Detailed motorcycle parked outdoors"
                 width="1000"
                 height="1250"
@@ -189,16 +195,31 @@
                   <div>
                     <dt>Email</dt>
                     <dd>
-                      <a href="mailto:hello@motogloss.com">hello@motogloss.com</a>
+                      <a href="mailto:motogloss@gmail.com">motogloss@gmail.com</a>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>WhatsApp</dt>
+                    <dd>
+                      <a
+                        href="https://wa.me/923320070729"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >+92 332 0070729</a
+                      >
                     </dd>
                   </div>
                   <div>
                     <dt>Hours</dt>
-                    <dd>Mon–Sat · 10:00 – 19:00</dd>
+                    <dd>Mon–Sun · DM to book an appointment</dd>
                   </div>
                   <div>
-                    <dt>Location</dt>
-                    <dd>Your city / studio address here</dd>
+                    <dt>Service</dt>
+                    <dd>Doorstep detailing across Rawalpindi &amp; Islamabad</dd>
+                  </div>
+                  <div>
+                    <dt>Studio</dt>
+                    <dd>DHA Phase 2, Rawalpindi — drop the bike off here</dd>
                   </div>
                 </dl>
               </aside>
@@ -219,10 +240,16 @@
                 <div class="field">
                   <label for="package">Package</label>
                   <select id="package" name="package">
-                    <option value="essential">Essential</option>
-                    <option value="signature" selected>Signature</option>
-                    <option value="showroom">Showroom</option>
-                    <option value="custom">Custom / not sure</option>
+                    <optgroup label="Bikes">
+                      <option value="Bike · Basic · PKR 5,000">Basic — PKR 5,000</option>
+                      <option value="Bike · Premium · PKR 9,000">Premium — PKR 9,000</option>
+                      <option value="Bike · Premium Plus · PKR 12,000" selected>Premium Plus — PKR 12,000</option>
+                    </optgroup>
+                    <optgroup label="Cars">
+                      <option value="Car · Basic · PKR 7,000">Basic — PKR 7,000</option>
+                      <option value="Car · Paint Correction · PKR 12,000">Paint Correction — PKR 12,000</option>
+                      <option value="Car · Ceramic Coating · PKR 16,000">Ceramic Coating — PKR 16,000</option>
+                    </optgroup>
                   </select>
                 </div>
                 <div class="field">
@@ -235,12 +262,10 @@
                 </div>
                 <button class="btn btn-primary" type="submit">Send request</button>
                 <p class="form-note">
-                  Form shows a local confirmation for now — wire it to email or
-                  WhatsApp when you’re ready to go live.
+                  Submit opens WhatsApp to the owner with your details filled in.
                 </p>
                 <p class="form-success" role="status">
-                  Thanks — your request is ready. Reach out on Instagram or email
-                  to confirm the slot.
+                  WhatsApp should open — send the message to confirm your slot.
                 </p>
               </form>
             </div>
@@ -266,7 +291,8 @@
           <div class="footer-col">
             <h4>Contact</h4>
             <a href="https://instagram.com/motogloss.pk" target="_blank" rel="noopener noreferrer">@motogloss.pk</a>
-            <a href="mailto:hello@motogloss.com">hello@motogloss.com</a>
+            <a href="mailto:motogloss@gmail.com">motogloss@gmail.com</a>
+            <a href="https://wa.me/923320070729" target="_blank" rel="noopener noreferrer">WhatsApp · 0332 0070729</a>
             <a href="#contact">Book a slot</a>
           </div>
         </div>

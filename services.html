@@ -13,15 +13,21 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Figtree:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <script>
       (function () {
         try {
           var t = localStorage.getItem("mg-theme");
           if (t !== "light" && t !== "dark") {
-            t = window.matchMedia("(prefers-color-scheme: dark)").matches
-              ? "dark"
-              : "light";
+            t = "dark";
           }
           document.documentElement.setAttribute("data-theme", t);
         } catch (e) {}
@@ -33,7 +39,7 @@
     <div class="site-wrap">
       <header class="site-header">
         <div class="nav-inner">
-          <a class="logo" href="index.html">MOTO<span>GLOSS</span></a>
+          <a class="logo" href="index.html"><span class="logo-stack"><span class="logo-mark">MOTO<span class="logo-accent">GLOSS</span></span><span class="logo-sub" aria-label="detailing"><span>d</span><span>e</span><span>t</span><span>a</span><span>i</span><span>l</span><span>i</span><span>n</span><span>g</span></span></span></a>
           <nav class="nav-links" aria-label="Primary">
             <a href="index.html">Home</a>
             <div class="nav-item">
@@ -247,7 +253,8 @@
           <div class="footer-col">
             <h4>Contact</h4>
             <a href="https://instagram.com/motogloss.pk" target="_blank" rel="noopener noreferrer">@motogloss.pk</a>
-            <a href="mailto:hello@motogloss.com">hello@motogloss.com</a>
+            <a href="mailto:motogloss@gmail.com">motogloss@gmail.com</a>
+            <a href="https://wa.me/923320070729" target="_blank" rel="noopener noreferrer">WhatsApp · 0332 0070729</a>
             <a href="about.html#contact">Book a slot</a>
           </div>
         </div>
