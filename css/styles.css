@@ -1083,7 +1083,7 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(18, 21, 26, 0.25), rgba(18, 21, 26, 0.55));
+  background: linear-gradient(180deg, rgba(11, 13, 16, 0.12) 20%, rgba(11, 13, 16, 0.28) 55%, rgba(11, 13, 16, 0.62) 100%);
 }
 
 .video-placeholder > div {
