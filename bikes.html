@@ -43,19 +43,17 @@
           <nav class="nav-links" aria-label="Primary">
             <a href="index.html">Home</a>
             <div class="nav-item is-active">
-              <button type="button" class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Bikes</button>
+              <a class="nav-drop-btn" href="bikes.html" aria-current="page">Bikes</a>
               <div class="nav-dropdown">
                 <a href="bikes.html" aria-current="page">Bike detailing</a>
                 <a href="bikes.html#plans">Plans &amp; pricing</a>
-                <a href="bikes.html#offers">Offers</a>
               </div>
             </div>
             <div class="nav-item">
-              <button type="button" class="nav-drop-btn" aria-expanded="false" aria-haspopup="true">Cars</button>
+              <a class="nav-drop-btn" href="cars.html">Cars</a>
               <div class="nav-dropdown">
                 <a href="cars.html">Car detailing</a>
                 <a href="cars.html#plans">Plans &amp; pricing</a>
-                <a href="cars.html#offers">Offers</a>
               </div>
             </div>
             <a href="services.html">Services</a>
@@ -82,22 +80,10 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">Home</a>
-        <details open>
-          <summary>Bikes</summary>
-          <div class="mobile-sub">
-            <a href="bikes.html" aria-current="page">Bike detailing</a>
-            <a href="bikes.html#plans">Plans &amp; pricing</a>
-            <a href="bikes.html#offers">Offers</a>
-          </div>
-        </details>
-        <details>
-          <summary>Cars</summary>
-          <div class="mobile-sub">
-            <a href="cars.html">Car detailing</a>
-            <a href="cars.html#plans">Plans &amp; pricing</a>
-            <a href="cars.html#offers">Offers</a>
-          </div>
-        </details>
+        <a href="bikes.html" aria-current="page">Bikes</a>
+        <a class="mobile-sublink" href="bikes.html#plans">Bike plans</a>
+        <a href="cars.html">Cars</a>
+        <a class="mobile-sublink" href="cars.html#plans">Car plans</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="about.html#contact">Contact</a>
@@ -114,7 +100,7 @@
             </p>
             <div class="btn-row" style="margin-top: 1.5rem">
               <a class="btn btn-primary" href="#plans">See plans</a>
-              <a class="btn btn-ghost" href="#offers">View offers</a>
+              <a class="btn btn-ghost" href="about.html#contact">Book a detail</a>
             </div>
           </div>
         </header>
@@ -247,7 +233,7 @@
           </div>
           <div class="footer-col">
             <h4>Explore</h4>
-            <a href="bikes.html">Bikes</a>
+            <a href="bikes.html" aria-current="page">Bikes</a>
             <a href="cars.html">Cars</a>
             <a href="about.html">About</a>
           </div>
