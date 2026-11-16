@@ -1,6 +1,6 @@
 (() => {
   const THEME_KEY = "mg-theme";
-  const WA_URL = "https://wa.me/923320070729";
+  const WA_URL = "https://wa.me/923355595155";
   const root = document.documentElement;
 
   const getPreferredTheme = () => {
@@ -237,5 +237,55 @@
     } else {
       window.setTimeout(warmSlides, 400);
     }
+  }
+
+  const tiles = document.querySelectorAll(".bike-tile");
+  const reelPanel = document.querySelector("#garage-reels");
+  if (tiles.length) {
+    const toast = document.createElement("div");
+    toast.className = "soon-toast";
+    toast.setAttribute("role", "status");
+    toast.textContent = "Coming soon!";
+    document.body.appendChild(toast);
+    let hideTimer = null;
+    const reelLabel = reelPanel
+      ? reelPanel.querySelector("[data-garage-label]")
+      : null;
+    const reelCards = reelPanel
+      ? [...reelPanel.querySelectorAll(".garage-reel")]
+      : [];
+
+    const showSoon = () => {
+      toast.classList.add("is-on");
+      if (hideTimer) clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => toast.classList.remove("is-on"), 1800);
+    };
+
+    const showReels = (set, label) => {
+      toast.classList.remove("is-on");
+      if (!reelPanel) return;
+      reelCards.forEach((card) => {
+        card.hidden = card.getAttribute("data-set") !== set;
+      });
+      if (reelLabel) reelLabel.textContent = label;
+      reelPanel.hidden = false;
+    };
+
+    tiles.forEach((tile) => {
+      tile.addEventListener("click", () => {
+        const kind = tile.getAttribute("data-garage");
+        tiles.forEach((other) => {
+          const open = other === tile && kind !== "soon";
+          other.classList.toggle("is-open", open);
+          other.setAttribute("aria-expanded", String(open));
+        });
+        if (kind === "sports") showReels("sports", "Sports reels");
+        else if (kind === "naked") showReels("naked", "Naked reel");
+        else {
+          if (reelPanel) reelPanel.hidden = true;
+          showSoon();
+        }
+      });
+    });
   }
 })();

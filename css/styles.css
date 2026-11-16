@@ -341,10 +341,16 @@ button {
 }
 
 .nav-links > a:hover,
+.nav-item:hover > .nav-drop-btn,
+.nav-item:focus-within > .nav-drop-btn {
+  color: var(--accent-deep);
+  background: transparent;
+}
+
 .nav-links > a[aria-current="page"],
-.nav-drop-btn:hover,
-.nav-item.is-open .nav-drop-btn,
-.nav-item.is-active .nav-drop-btn {
+.nav-drop-btn[aria-current="page"],
+.nav-item:hover > .nav-drop-btn[aria-current="page"],
+.nav-item:focus-within > .nav-drop-btn[aria-current="page"] {
   color: var(--accent-deep);
   background: rgba(61, 224, 192, 0.14);
 }
@@ -359,10 +365,9 @@ button {
 }
 
 .site-header.is-scrolled .nav-links > a:hover,
+.site-header.is-scrolled .nav-item:hover > .nav-drop-btn,
 .site-header.is-scrolled .nav-links > a[aria-current="page"],
-.site-header.is-scrolled .nav-drop-btn:hover,
-.site-header.is-scrolled .nav-item.is-open .nav-drop-btn,
-.site-header.is-scrolled .nav-item.is-active .nav-drop-btn {
+.site-header.is-scrolled .nav-drop-btn[aria-current="page"] {
   color: var(--ink);
   background: transparent;
 }
@@ -371,11 +376,25 @@ button {
   position: relative;
 }
 
+.nav-item:hover,
+.nav-item:focus-within {
+  z-index: 5;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 100%;
+  height: 0.5rem;
+}
+
 .nav-drop-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.35rem 0;
+  padding: 0.45rem 0.7rem;
 }
 
 .nav-drop-btn::after {
@@ -393,25 +412,20 @@ button {
   transform: rotate(180deg);
 }
 
-.nav-item::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  height: 0.95rem;
-}
-
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 0.7rem);
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  min-width: 200px;
-  padding: 0.45rem;
+  top: calc(100% + 0.45rem);
+  left: 0;
+  transform: translateY(6px);
+  min-width: 11.5rem;
+  width: max-content;
+  padding: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
   background: var(--bg-elevated);
   border: 1px solid var(--line-strong);
-  border-radius: 1rem;
+  border-radius: 10px;
   box-shadow: var(--card-shadow);
   opacity: 0;
   visibility: hidden;
@@ -425,16 +439,18 @@ button {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
 }
 
 .nav-dropdown a {
   display: block;
-  padding: 0.65rem 0.75rem;
-  font-size: 0.8rem;
-  font-weight: 500;
+  padding: 0.55rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: var(--ink-muted);
   transition: color 0.2s, background 0.2s;
 }
@@ -691,7 +707,6 @@ button {
 .nav-cta,
 .nav-links > a,
 .nav-drop-btn,
-.nav-dropdown a,
 .price-plan .badge,
 .offer .code,
 .hero-dots {
@@ -785,12 +800,28 @@ button {
   position: absolute;
   inset: 0;
   background-color: var(--bg-soft);
-  background-position: right 35%;
+  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0;
   visibility: hidden;
-  transform: scale(1.06);
+  transform: translateX(20%) scale(1.06);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6%,
+    rgba(0, 0, 0, 0.2) 16%,
+    rgba(0, 0, 0, 0.55) 28%,
+    #000 44%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6%,
+    rgba(0, 0, 0, 0.2) 16%,
+    rgba(0, 0, 0, 0.55) 28%,
+    #000 44%
+  );
   transition:
     opacity 0.85s var(--ease),
     visibility 0.85s var(--ease),
@@ -801,16 +832,8 @@ button {
 .hero-slide.is-active {
   opacity: 1;
   visibility: visible;
-  transform: scale(1);
+  transform: translateX(20%) scale(1);
   z-index: 1;
-}
-
-.hero-slide:nth-child(2) {
-  background-position: 62% center;
-}
-
-.hero-slide:nth-child(3) {
-  background-position: 42% center;
 }
 
 .hero-media-veil {
@@ -818,7 +841,19 @@ button {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  background: var(--hero-veil), var(--hero-fade-bottom);
+  background:
+    linear-gradient(
+      90deg,
+      #000 0%,
+      #000 18%,
+      rgba(0, 0, 0, 0.9) 28%,
+      rgba(0, 0, 0, 0.68) 40%,
+      rgba(0, 0, 0, 0.4) 52%,
+      rgba(0, 0, 0, 0.16) 62%,
+      rgba(0, 0, 0, 0.04) 70%,
+      transparent 78%
+    ),
+    var(--hero-fade-bottom);
 }
 
 .hero-shine {
@@ -865,14 +900,15 @@ button {
 
 .hero-copy {
   position: absolute;
-  top: 0.25rem;
-  left: 0.35rem;
+  top: 50%;
+  left: 0.75rem;
   max-width: min(92vw, 34rem);
   padding: 0;
   text-align: left;
   background: none;
   box-shadow: none;
-  animation: rise 0.85s var(--ease) both;
+  transform: translateY(-50%);
+  animation: rise-center 0.85s var(--ease) both;
 }
 
 .hero-kicker {
@@ -1013,6 +1049,14 @@ button {
 }
 
 @media (max-width: 720px) {
+  .hero-slide {
+    transform: translateX(10%) scale(1.06);
+  }
+
+  .hero-slide.is-active {
+    transform: translateX(10%) scale(1);
+  }
+
   .hero-controls {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -1065,10 +1109,20 @@ button {
   }
 }
 
+@keyframes rise-center {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-50% + 24px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
 @media (min-width: 900px) {
   .hero-copy {
-    top: 0.35rem;
-    left: 0.5rem;
+    left: 1.25rem;
   }
 }
 
@@ -1224,10 +1278,88 @@ button {
 
 .bike-tile {
   position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--bg-panel);
   border: 1px solid var(--line);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.soon-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.6rem;
+  z-index: 90;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  background: #0b0d10;
+  color: #fff;
+  border: 1px solid rgba(61, 224, 192, 0.5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.soon-toast.is-on {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.bike-tile.is-open {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.garage-reels {
+  margin-top: 1.25rem;
+}
+
+.garage-reels-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.85rem;
+  max-width: 42rem;
+}
+
+.garage-reel {
+  display: grid;
+  gap: 0.45rem;
+  color: #fff;
+  background: #0b0d10;
+  border: 1px solid var(--line-strong);
+  overflow: hidden;
+}
+
+.garage-reel[hidden] {
+  display: none !important;
+}
+
+.garage-reel-thumb {
+  display: block;
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.garage-reel-meta {
+  padding: 0.55rem 0.7rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .bike-tile img {
@@ -1350,6 +1482,171 @@ button {
 
 .page-hero .section-title {
   margin-bottom: 0.75rem;
+}
+
+.page-hero-photo {
+  --page-hero-image: url("../assets/services-hero.jpg?v=2");
+  --page-hero-position: center center;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(28rem, 68vh, 42rem);
+  padding: calc(var(--nav-h) + 2rem) 0 3rem;
+  border-bottom: none;
+  background: #000;
+  overflow: hidden;
+}
+
+.page-hero-photo--cars {
+  --page-hero-image: none;
+  --page-hero-position: 42% 58%;
+}
+
+.page-hero-photo--bikes {
+  --page-hero-image: none;
+  --page-hero-position: 52% 48%;
+}
+
+.page-hero-photo--bikes .page-hero-media {
+  object-position: 52% 48%;
+}
+
+.page-hero-photo--about {
+  --page-hero-image: none;
+  --page-hero-position: 55% 48%;
+}
+
+.page-hero-photo--about .page-hero-media {
+  object-position: 55% 48%;
+}
+
+@media (max-width: 720px) {
+  .page-hero-media {
+    transform: translateX(10%);
+  }
+}
+
+.page-hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 48% 55%;
+  transform: translateX(20%);
+  filter: none;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6%,
+    rgba(0, 0, 0, 0.2) 16%,
+    rgba(0, 0, 0, 0.55) 28%,
+    #000 44%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6%,
+    rgba(0, 0, 0, 0.2) 16%,
+    rgba(0, 0, 0, 0.55) 28%,
+    #000 44%
+  );
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.page-hero-photo--cars .page-hero-media {
+  object-position: 45% 56%;
+}
+
+.page-hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--page-hero-image) var(--page-hero-position) / cover no-repeat;
+  transform: translateX(20%);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6%,
+    rgba(0, 0, 0, 0.2) 16%,
+    rgba(0, 0, 0, 0.55) 28%,
+    #000 44%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 6%,
+    rgba(0, 0, 0, 0.2) 16%,
+    rgba(0, 0, 0, 0.55) 28%,
+    #000 44%
+  );
+  z-index: 0;
+}
+
+.page-hero-photo.page-hero-photo--cars::before,
+.page-hero-photo.page-hero-photo--bikes::before,
+.page-hero-photo.page-hero-photo--about::before {
+  content: none;
+  display: none;
+}
+
+.page-hero-photo.page-hero-photo--cars::after,
+.page-hero-photo.page-hero-photo--bikes::after,
+.page-hero-photo.page-hero-photo--about::after {
+  background:
+    linear-gradient(
+      90deg,
+      #000 0%,
+      #000 14%,
+      rgba(0, 0, 0, 0.82) 26%,
+      rgba(0, 0, 0, 0.45) 42%,
+      rgba(0, 0, 0, 0.16) 56%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, transparent 78%, var(--bg) 100%);
+}
+
+.page-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      #000 0%,
+      #000 18%,
+      rgba(0, 0, 0, 0.9) 28%,
+      rgba(0, 0, 0, 0.68) 40%,
+      rgba(0, 0, 0, 0.4) 52%,
+      rgba(0, 0, 0, 0.16) 62%,
+      rgba(0, 0, 0, 0.04) 70%,
+      transparent 78%
+    ),
+    linear-gradient(180deg, transparent 78%, var(--bg) 100%);
+}
+
+.page-hero-photo .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero-photo .section-title {
+  color: #fff;
+}
+
+.page-hero-photo .section-lead {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 720px) {
+  .page-hero-photo::before {
+    transform: translateX(10%);
+  }
 }
 
 /* ——— Services ——— */
@@ -1578,20 +1875,6 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.about-visual::after {
-  content: "MOTO\AGLOSS";
-  position: absolute;
-  inset: auto 1rem 1rem 1rem;
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 10vw, 5rem);
-  line-height: 0.85;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.28);
-  white-space: pre-line;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
-  pointer-events: none;
 }
 
 .about-copy p {
